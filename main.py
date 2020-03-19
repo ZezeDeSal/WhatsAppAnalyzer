@@ -10,7 +10,7 @@ def read_chat(path):
     :Path of the chat file, exported from android:
     :Returns the chat file as a pandas DataFrame:
     '''
-    chat = open(r"data/HierNimmt.txt", "r", encoding= "UTF-8").read()
+    chat = open(path, "r", encoding= "UTF-8").read()
     date_format = re.compile(r"\d{2}/\d{2}/\d{4},\s\d{2}:\d{2}")
     dates = date_format.findall(chat)
     messages = date_format.split(chat)
@@ -37,13 +37,13 @@ def transform_chat(chat):
 
 ##
 
-chat_path = r"data/HierNimmt.txt"
+chat_path = r"D:/Python/WhatsAppAnalyzer/data//HierNimmt.txt"
 chat = read_chat(chat_path)
 chat_df = transform_chat(chat)
 
 ##
 
-chat_df.to_excel("data/HierNimmt.xlsx", index = False)
+chat_df.to_excel("D:/Python/WhatsAppAnalyzer/data//HierNimmt.xlsx", index = False)
 
 ##
 
